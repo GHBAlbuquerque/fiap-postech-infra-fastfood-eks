@@ -1,0 +1,13 @@
+region         = "us-east-1"
+profile        = "default"
+accountid      = "067184771399"
+lab_role_arn   = "arn:aws:iam::067184771399:role/LabRole"
+vpc_id         = "vpc-0c33afcdadaa4be7b"
+vpc_cidr_block = "172.31.0.0/16"
+subnet_id_a    = "subnet-021d5fd5534bb9fbd"
+subnet_id_b    = "subnet-021d5fd5534bb9fbd"
+subnet_id_c    = "subnet-05685364d9e045913"
+subnet_id_d    = "subnet-066ce0c3304da4788"
+subnet_id_e    = "subnet-0bdae3752039a482f"
+instance_type  = "t3.medium"
+
