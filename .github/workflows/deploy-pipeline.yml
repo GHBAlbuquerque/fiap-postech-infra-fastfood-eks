@@ -9,6 +9,7 @@ env:
   AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
   AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
   AWS_SESSION_TOKEN: ${{ secrets.AWS_SESSION_TOKEN }}
+  EKS_CLUSTER_NAME: eks_cluster_fiap_postech
   TF_LOG: "INFO" # "DEBUG"
 
 jobs:
@@ -45,8 +46,8 @@ jobs:
         run: terraform -chdir="./infra" apply -input=false -auto-approve
 
   deploy_kubernetes_aws:
-    needs: build
-    name: deploy-aws
+    needs: deploy_terraform_aws
+    name: deploy_kubernetes_aws
     runs-on: ubuntu-latest
 
     steps:
