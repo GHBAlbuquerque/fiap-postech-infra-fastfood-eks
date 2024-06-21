@@ -42,10 +42,6 @@ variable "subnet_id_d" {
   default = "subnet-d"
 }
 
-variable "subnet_id_e" {
-  default = "subnet-e"
-}
-
 variable "instance_type" {
   default = "t3.medium"
 }

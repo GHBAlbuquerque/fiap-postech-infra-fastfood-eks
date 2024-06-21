@@ -8,6 +8,5 @@ subnet_id_a    = "subnet-01397f0c989a8eec6"
 subnet_id_b    = "subnet-04ecfb1a724b6ff1f"
 subnet_id_c    = "subnet-06d363563fed39943"
 subnet_id_d    = "subnet-0371f3a11488d2702"
-subnet_id_e    = "subnet-0d862634023d97908"
 instance_type  = "t3.medium"
 
