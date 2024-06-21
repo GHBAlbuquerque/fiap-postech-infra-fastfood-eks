@@ -43,3 +43,35 @@ jobs:
       - name: Terraform Apply
         id: apply
         run: terraform -chdir="./infra" apply -input=false -auto-approve
+
+  deploy_kubernetes_aws:
+    needs: build
+    name: deploy-aws
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Set short git commit SHA
+        id: commit
+        uses: prompt/actions-commit-hash@v2
+
+      - name: Check out code
+        uses: actions/checkout@v2
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-session-token: ${{ secrets.AWS_SESSION_TOKEN }}
+          aws-region: us-east-1
+
+      - name: Update kube config
+        run: aws eks update-kubeconfig --name $EKS_CLUSTER_NAME --region $AWS_REGION
+
+      - name: Deploy to EKS
+        env:
+          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+          IMAGE_TAG: ${{ steps.commit.outputs.short }}
+        run: |
+          kubectl apply -f infra-kubernetes/namespace.yaml
