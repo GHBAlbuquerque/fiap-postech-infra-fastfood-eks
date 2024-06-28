@@ -9,15 +9,15 @@ resource "aws_alb" "alb-cluster-fiap" {
 
 resource "aws_lb_target_group" "target-group-cluster-fiap" {
   name        = "tg-cluster-fiap"
-  port        = 30007
+  port        = 80
   target_type = "instance"
   protocol    = "HTTP"
 
   vpc_id = var.vpc_id
 
   health_check {
-    path     = "/actuator/health"
-    port     = 30007
+    path     = "/msproduto/actuator/health"
+    port     = 80
     matcher  = "200"
     interval = 90
     timeout  = 60
@@ -27,7 +27,7 @@ resource "aws_lb_target_group" "target-group-cluster-fiap" {
 resource "aws_lb_target_group_attachment" "attach" {
   target_group_arn = aws_lb_target_group.target-group-cluster-fiap.arn
   target_id        = data.aws_instance.ec2.id
-  port             = 30007
+  port             = 80
 }
 
 
