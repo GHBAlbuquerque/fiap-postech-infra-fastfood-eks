@@ -27,7 +27,7 @@ resource "aws_lb_target_group" "target-group-cluster-fiap" {
 resource "aws_lb_target_group_attachment" "attach" {
   depends_on = [data.aws_instance.ec2]
   target_group_arn = aws_lb_target_group.target-group-cluster-fiap.arn
-  target_id        = data.aws_instance.ec2[0].id
+  target_id        = data.aws_instance.ec2.id
   port             = 80
 }
 
