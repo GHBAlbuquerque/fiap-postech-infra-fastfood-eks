@@ -22,9 +22,6 @@ resource "aws_lb_target_group_attachment" "attach-ms-pedido" {
   port             = 30009
 }
 
-
-
-
 resource "aws_lb_listener_rule" "listener-rule-ms-pedido" {
   listener_arn = aws_lb_listener.listener.arn
   priority     = 200

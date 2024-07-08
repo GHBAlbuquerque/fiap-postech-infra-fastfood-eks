@@ -22,7 +22,6 @@ resource "aws_lb_target_group_attachment" "attach-ms-cliente" {
   port             = 30007
 }
 
-
 resource "aws_lb_listener_rule" "listener-rule-ms-cliente" {
   listener_arn = aws_lb_listener.listener.arn
   priority     = 100
