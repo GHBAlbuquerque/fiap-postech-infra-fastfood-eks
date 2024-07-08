@@ -11,7 +11,7 @@ resource "aws_iam_role" "eks_fiap_role" {
         "Service": [
           "ec2.amazonaws.com",
           "ec2.application-autoscaling.amazonaws.com",
-          "eks.amazonaws.com",
+          "eks.amazonaws.com"
       ]
       },
       "Action": "sts:AssumeRole"
