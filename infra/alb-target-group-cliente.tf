@@ -23,19 +23,8 @@ resource "aws_lb_target_group_attachment" "attach-ms-cliente" {
 }
 
 
-resource "aws_lb_listener" "listener-ms-cliente" {
-  load_balancer_arn = aws_alb.alb-cluster-fiap.arn
-  port              = "80"
-  protocol          = "HTTP"
-
-  default_action {
-    type             = "forward"
-    target_group_arn = aws_lb_target_group.target-group-ms-cliente.arn
-  }
-}
-
 resource "aws_lb_listener_rule" "listener-rule-ms-cliente" {
-  listener_arn = aws_lb_listener.listener-ms-cliente.arn
+  listener_arn = aws_lb_listener.listener.arn
   priority     = 100
 
   action {

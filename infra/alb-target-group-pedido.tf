@@ -23,20 +23,11 @@ resource "aws_lb_target_group_attachment" "attach-ms-pedido" {
 }
 
 
-resource "aws_lb_listener" "listener-ms-pedido" {
-  load_balancer_arn = aws_alb.alb-cluster-fiap.arn
-  port              = "80"
-  protocol          = "HTTP"
 
-  default_action {
-    type             = "forward"
-    target_group_arn = aws_lb_target_group.target-group-ms-pedido.arn
-  }
-}
 
 resource "aws_lb_listener_rule" "listener-rule-ms-pedido" {
-  listener_arn = aws_lb_listener.listener-ms-pedido.arn
-  priority     = 100
+  listener_arn = aws_lb_listener.listener.arn
+  priority     = 200
 
   action {
     type             = "forward"
