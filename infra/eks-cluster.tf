@@ -11,7 +11,7 @@ resource "aws_eks_cluster" "eks_cluster_fiap_postech" {
 resource "aws_eks_node_group" "eks_node_group_fiap_postech" {
   cluster_name    = aws_eks_cluster.eks_cluster_fiap_postech.name
   node_group_name = "eks_node_group_fiap_postech"
-  node_role_arn   = var.lab_role_arn
+  node_role_arn   = aws_iam_role.eks_fiap_role.arn
   subnet_ids      = [var.subnet_id_a, var.subnet_id_b, var.subnet_id_c, var.subnet_id_d]
   instance_types  = [var.instance_type]
 
