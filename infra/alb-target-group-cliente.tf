@@ -32,8 +32,9 @@ resource "aws_lb_listener_rule" "listener-rule-ms-cliente" {
   }
 
   condition {
-    host_header {
-      values = ["ms-cliente"]
+    http_header {
+      http_header_name = "microsservice"
+      values           = ["ms_cliente"]
     }
   }
 }
