@@ -9,7 +9,7 @@ terraform {
   #  required_version = ">=0.14.9"
 
   backend "s3" {
-    bucket  = "terraform-state-backend-postech-new"
+    bucket  = "terraform-state-backend-postech"
     key     = "fiap-postech-infra-fastfood-eks/terraform.tfstate"
     region  = "us-east-1"
     encrypt = true

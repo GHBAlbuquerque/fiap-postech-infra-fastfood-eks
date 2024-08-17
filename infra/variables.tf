@@ -49,23 +49,3 @@ variable "subnet_id_d" {
 variable "instance_type" {
   default = "t3.medium"
 }
-
-variable "ec2_policy_lab_role_arn" {
-  default = "policy_arn"
-}
-
-variable "eks_cluster_policy_lab_role_arn" {
-  default = "policy_arn"
-}
-
-variable "eks_worker_node_policy_lab_role_arn" {
-  default = "policy_arn"
-}
-
-variable "amazon_ssm_policy_lab_role_arn" {
-  default = "policy_arn"
-}
-
-variable "dynamodb_policy_lab_role_arn" {
-  default = "policy_arn"
-}
