@@ -24,7 +24,7 @@ resource "aws_lb_target_group_attachment" "attach-ms-pagamento" {
 
 resource "aws_lb_listener_rule" "listener-rule-ms-pagamento" {
   listener_arn = aws_lb_listener.listener.arn
-  priority     = 400
+  priority     = 300
 
   action {
     type             = "forward"

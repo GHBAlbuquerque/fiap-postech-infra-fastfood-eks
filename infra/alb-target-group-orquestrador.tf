@@ -24,7 +24,7 @@ resource "aws_lb_target_group_attachment" "attach-ms-orquestrador" {
 
 resource "aws_lb_listener_rule" "listener-rule-ms-orquestrador" {
   listener_arn = aws_lb_listener.listener.arn
-  priority     = 300
+  priority     = 100
 
   action {
     type             = "forward"
